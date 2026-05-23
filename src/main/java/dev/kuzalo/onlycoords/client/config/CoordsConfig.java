@@ -17,7 +17,7 @@ public class CoordsConfig {
 	public boolean showDirection = false;
 	public boolean hideWhenF3Open = true;
 
-	// Le JSON est éditable à la main : on ramène les champs bornés dans leur plage valide après lecture.
+	// The JSON can be hand-edited: clamp the bounded fields back into their valid range after reading.
 	public void clamp() {
 		if (anchor == null) {
 			anchor = HudAnchor.TOP_LEFT;

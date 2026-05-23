@@ -1,20 +1,20 @@
 // ─────────────────────────────────────────────────────────────────────────────
-// PUBLICATION (Modrinth / CurseForge / GitHub Releases) — préparée mais INACTIVE.
-// Pour publier plus tard :
-//   1. Crée le projet sur Modrinth et CurseForge, note leurs project IDs.
-//   2. Remplace les placeholders "TODO_*" dans le bloc publishMods (plus bas) :
-//      projectId Modrinth, projectId CurseForge, repository GitHub (owner/repo).
-//   3. Crée les 3 secrets dans GitHub (Settings → Secrets and variables → Actions) :
-//        - MODRINTH_TOKEN    (Personal Access Token Modrinth)
-//        - CURSEFORGE_TOKEN  (clé API CurseForge)
-//        - GITHUB_TOKEN      → fourni AUTOMATIQUEMENT par GitHub Actions, rien à créer.
-//   4. Réactive .github/workflows/publish.yml puis pousse un tag « v* » (ex: v1.0.0).
-// Sans ces tokens, « publishMods » / « chiseledPublishMods » ne publie rien.
+// PUBLISHING (Modrinth / CurseForge / GitHub Releases) — prepared but INACTIVE.
+// To publish later:
+//   1. Create the project on Modrinth and CurseForge, note their project IDs.
+//   2. Replace the "TODO_*" placeholders in the publishMods block (below):
+//      Modrinth projectId, CurseForge projectId, GitHub repository (owner/repo).
+//   3. Create the 3 secrets in GitHub (Settings → Secrets and variables → Actions):
+//        - MODRINTH_TOKEN    (Modrinth Personal Access Token)
+//        - CURSEFORGE_TOKEN  (CurseForge API key)
+//        - GITHUB_TOKEN      → provided AUTOMATICALLY by GitHub Actions, nothing to create.
+//   4. Re-enable .github/workflows/publish.yml then push a "v*" tag (e.g. v1.0.0).
+// Without these tokens, "publishMods" / "chiseledPublishMods" publishes nothing.
 // ─────────────────────────────────────────────────────────────────────────────
 plugins {
     // This plugin applies the correct loom variant based on the Minecraft version
     id("dev.kikugie.loom-back-compat")
-    // Publication multi-plateforme — voir le bloc publishMods et le commentaire ci-dessus.
+    // Multi-platform publishing — see the publishMods block and the comment above.
     id("me.modmuss50.mod-publish-plugin")
 }
 
@@ -46,7 +46,7 @@ repositories {
     strictMaven("https://www.cursemaven.com", "CurseForge", "curse.maven")
     strictMaven("https://api.modrinth.com/maven", "Modrinth", "maven.modrinth")
     strictMaven("https://maven.terraformersmc.com/releases", "TerraformersMC", "com.terraformersmc")
-    // YACL embarque quilt-parsers (json/gson) en JIJ ; requis au runtime dev (cf. bloc dependencies).
+    // YACL bundles quilt-parsers (json/gson) as JIJ; required at dev runtime (see dependencies block).
     strictMaven("https://maven.quiltmc.org/repository/release", "QuiltMC", "org.quiltmc.parsers")
 }
 
@@ -64,23 +64,23 @@ dependencies {
     loomx.applyMojangMappings()
 
     modImplementation("net.fabricmc:fabric-loader:${property("deps.fabric_loader")}")
-    // Full Fabric API : YACL/ModMenu (et notre mod) dépendent de l'umbrella "fabric-api" + de plusieurs modules
-    // (fabric-resource-loader-v0, fabric-screen-api-v1, le bon module keybind par version, …).
-    // Les modules individuels (fapi(...)) ne fournissent pas l'umbrella → résolution runtime KO.
+    // Full Fabric API: YACL/ModMenu (and our mod) depend on the "fabric-api" umbrella + several modules
+    // (fabric-resource-loader-v0, fabric-screen-api-v1, the right keybind module per version, ...).
+    // The individual modules (fapi(...)) do not provide the umbrella → runtime resolution fails.
     val fabricApiVersion: String = sc.properties["deps.fabric_api"]
     modImplementation("net.fabricmc.fabric-api:fabric-api:$fabricApiVersion")
 
-    // GUI de config : YACL (via le maven Modrinth, déjà déclaré) + ModMenu (maven TerraformersMC), versions per-version.
+    // Config GUI: YACL (via the Modrinth maven, already declared) + ModMenu (TerraformersMC maven), per-version versions.
     val yaclVersion: String = sc.properties["deps.yacl"]
     val modmenuVersion: String = sc.properties["deps.modmenu"]
     modImplementation("maven.modrinth:yacl:$yaclVersion")
     modImplementation("com.terraformersmc:modmenu:$modmenuVersion")
 
-    // YACL embarque quilt-parsers (json + gson 0.2.1) en JIJ. En prod, Fabric charge ces jars imbriqués
-    // depuis le jar de YACL ; mais en dev, loom ne place PAS les JIJ sur le classpath runtime
-    // -> crash NoClassDefFoundError: org.quiltmc.parsers.json.gson.GsonReader au démarrage de YACL.
-    // Ce sont des fabric mods JIJ (fabric.mod.json présent, vérifié via jar tf) -> modRuntimeOnly.
-    // Versions identiques sur YACL 1.21.8 (3.8.2) et 26.1.2 (3.9.3) -> déclaration globale.
+    // YACL bundles quilt-parsers (json + gson 0.2.1) as JIJ. In production, Fabric loads these nested jars
+    // from YACL's jar; but in dev, loom does NOT put the JIJ on the runtime classpath
+    // -> NoClassDefFoundError: org.quiltmc.parsers.json.gson.GsonReader crash on YACL startup.
+    // They are JIJ fabric mods (fabric.mod.json present, verified via jar tf) -> modRuntimeOnly.
+    // Identical versions on YACL 1.21.8 (3.8.2) and 26.1.2 (3.9.3) -> global declaration.
     modRuntimeOnly("org.quiltmc.parsers:json:0.2.1")
     modRuntimeOnly("org.quiltmc.parsers:gson:0.2.1")
 }
@@ -113,9 +113,9 @@ java {
     }
 }
 
-// Publication multi-plateforme — voir le commentaire en haut du fichier pour l'activer.
-// Tant que les tokens (MODRINTH_TOKEN / CURSEFORGE_TOKEN / GITHUB_TOKEN) ne sont pas définis,
-// providers.environmentVariable(...) reste vide → aucune publication n'a lieu (tâche no-op).
+// Multi-platform publishing — see the comment at the top of the file to enable it.
+// As long as the tokens (MODRINTH_TOKEN / CURSEFORGE_TOKEN / GITHUB_TOKEN) are not defined,
+// providers.environmentVariable(...) stays empty → no publishing happens (no-op task).
 publishMods {
     file = loomx.modJar.flatMap { it.archiveFile }
     displayName = "${property("mod.name")} ${property("mod.version")} (MC ${sc.current.version})"

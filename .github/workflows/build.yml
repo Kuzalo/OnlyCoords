@@ -13,9 +13,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # 1.21.8 nécessite Java 21, 26.1.2 nécessite Java 25.
-      # On installe les deux : loom-back-compat sélectionne le bon toolchain par version,
-      # donc un unique « ./gradlew build » construit toutes les versions (pas besoin de matrix).
+      # 1.21.8 requires Java 21, 26.1.2 requires Java 25.
+      # We install both: loom-back-compat selects the right toolchain per version,
+      # so a single "./gradlew build" builds all versions (no matrix needed).
       - name: Setup JDK 21 + 25
         uses: actions/setup-java@v4
         with:

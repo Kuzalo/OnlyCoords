@@ -33,7 +33,7 @@ public final class ConfigManager {
 
 	public static CoordsConfig load() {
 		if (!Files.exists(CONFIG_PATH)) {
-			LOGGER.info("Aucune config trouvée, création de {} avec les valeurs par défaut", CONFIG_PATH.getFileName());
+			LOGGER.info("No config found, creating {} with default values", CONFIG_PATH.getFileName());
 			CoordsConfig config = new CoordsConfig();
 			save(config);
 			instance = config;
@@ -43,13 +43,13 @@ public final class ConfigManager {
 		try (Reader reader = Files.newBufferedReader(CONFIG_PATH)) {
 			CoordsConfig config = GSON.fromJson(reader, CoordsConfig.class);
 			if (config == null) {
-				throw new JsonParseException("fichier vide");
+				throw new JsonParseException("empty file");
 			}
 			config.clamp();
 			instance = config;
 			return config;
 		} catch (JsonParseException | IOException e) {
-			LOGGER.warn("Config {} illisible ou corrompue ({}), utilisation des valeurs par défaut",
+			LOGGER.warn("Config {} unreadable or corrupted ({}), using default values",
 					CONFIG_PATH.getFileName(), e.getMessage());
 			CoordsConfig config = new CoordsConfig();
 			instance = config;
@@ -57,7 +57,7 @@ public final class ConfigManager {
 		}
 	}
 
-	// Sauvegarde l'instance courante. Sert de Runnable pour le bouton Save de l'écran YACL.
+	// Saves the current instance. Used as a Runnable for the YACL screen's Save button.
 	public static void save() {
 		save(getInstance());
 	}
@@ -69,7 +69,7 @@ public final class ConfigManager {
 				GSON.toJson(config, writer);
 			}
 		} catch (IOException e) {
-			LOGGER.warn("Échec de la sauvegarde de la config {} : {}", CONFIG_PATH.getFileName(), e.getMessage());
+			LOGGER.warn("Failed to save config {}: {}", CONFIG_PATH.getFileName(), e.getMessage());
 		}
 	}
 }

@@ -17,8 +17,8 @@ import dev.kuzalo.onlycoords.client.config.ConfigManager;
 import dev.kuzalo.onlycoords.client.config.CoordsConfig;
 
 public final class KeyBindings {
-	// 26.1 : catégorie = objet KeyMapping.Category.register(ResourceLocation) + KeyMappingHelper.
-	// 1.21.8 : catégorie = String (clé de traduction) directement dans le constructeur + KeyBindingHelper.
+	// 26.1: category = KeyMapping.Category.register(ResourceLocation) object + KeyMappingHelper.
+	// 1.21.8: category = String (translation key) directly in the constructor + KeyBindingHelper.
 	//? if >=26.1 {
 	/*private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(
 			ResourceLocation.fromNamespaceAndPath(OnlyCoordsClient.MOD_ID, "keys"));

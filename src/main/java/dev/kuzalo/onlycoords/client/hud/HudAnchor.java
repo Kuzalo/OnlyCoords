@@ -12,10 +12,10 @@ public enum HudAnchor {
 	BOTTOM_RIGHT;
 
 	/**
-	 * Calcule la position de base (coin haut-gauche) du bloc de contenu dans le conteneur,
-	 * selon l'ancrage, en appliquant les offsets.
+	 * Computes the base position (top-left corner) of the content block within the container,
+	 * according to the anchor, applying the offsets.
 	 *
-	 * @return un tableau {@code [x, y]}
+	 * @return an {@code [x, y]} array
 	 */
 	public int[] computePosition(int containerW, int containerH, int contentW, int contentH, int offsetX, int offsetY) {
 		int x = switch (this) {

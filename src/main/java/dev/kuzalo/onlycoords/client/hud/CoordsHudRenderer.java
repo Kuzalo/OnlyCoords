@@ -29,8 +29,8 @@ public class CoordsHudRenderer implements HudElement {
 		HudElementRegistry.attachElementAfter(VanillaHudElements.CHAT, ID, new CoordsHudRenderer());
 	}
 
-	// 26.1 : extractRenderState(GuiGraphics, DeltaTracker) — modèle "extract render state".
-	// 1.21.8 : render(GuiGraphics, DeltaTracker). La logique métier est partagée dans renderHud(...).
+	// 26.1: extractRenderState(GuiGraphics, DeltaTracker) — "extract render state" model.
+	// 1.21.8: render(GuiGraphics, DeltaTracker). The business logic is shared in renderHud(...).
 	//? if >=26.1 {
 	/*@Override
 	public void extractRenderState(GuiGraphics graphics, DeltaTracker tickCounter) {
@@ -107,12 +107,12 @@ public class CoordsHudRenderer implements HudElement {
 
 	private static String formatCoords(CoordsConfig config, double x, double y, double z) {
 		if (!config.showDecimals) {
-			// floor (pas un cast direct) sinon les coords négatives sont fausses : (int) -0.5 == 0 au lieu de -1.
+			// floor (not a direct cast) otherwise negative coords are wrong: (int) -0.5 == 0 instead of -1.
 			return "X: " + (int) Math.floor(x) + " Y: " + (int) Math.floor(y) + " Z: " + (int) Math.floor(z);
 		}
 
 		String fmt = "X: %." + config.decimalCount + "f Y: %." + config.decimalCount + "f Z: %." + config.decimalCount + "f";
-		// Locale.ROOT pour forcer le point décimal (et non la virgule en locale FR).
+		// Locale.ROOT to force the decimal point (not the comma in FR locale).
 		return String.format(Locale.ROOT, fmt, x, y, z);
 	}
 

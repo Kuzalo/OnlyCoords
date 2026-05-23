@@ -1,13 +1,13 @@
 # ─────────────────────────────────────────────────────────────────────────────
-# Publication automatique sur Modrinth / CurseForge / GitHub Releases.
-# DÉSACTIVÉ par défaut (if: false) — la structure est prête pour plus tard.
+# Automatic publishing to Modrinth / CurseForge / GitHub Releases.
+# DISABLED by default (if: false) — the structure is ready for later.
 #
-# Pour l'activer :
-#   1. Renseigne les project IDs et le repo dans build.gradle.kts (bloc publishMods).
-#   2. Crée les secrets GitHub : MODRINTH_TOKEN, CURSEFORGE_TOKEN.
-#      (GITHUB_TOKEN est fourni automatiquement par GitHub Actions.)
-#   3. Supprime la ligne « if: false » ci-dessous.
-#   4. Publie en poussant un tag de version :  git tag v1.0.0 && git push origin v1.0.0
+# To enable it:
+#   1. Fill in the project IDs and the repo in build.gradle.kts (publishMods block).
+#   2. Create the GitHub secrets: MODRINTH_TOKEN, CURSEFORGE_TOKEN.
+#      (GITHUB_TOKEN is provided automatically by GitHub Actions.)
+#   3. Remove the "if: false" line below.
+#   4. Publish by pushing a version tag:  git tag v1.0.0 && git push origin v1.0.0
 # ─────────────────────────────────────────────────────────────────────────────
 name: Publish
 
@@ -18,7 +18,7 @@ on:
 
 jobs:
   publish:
-    if: false  # ← supprime cette ligne pour activer la publication
+    if: false  # ← remove this line to enable publishing
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

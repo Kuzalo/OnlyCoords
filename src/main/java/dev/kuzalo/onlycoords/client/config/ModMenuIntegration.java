@@ -23,12 +23,12 @@ import dev.isxander.yacl3.api.controller.IntegerSliderControllerBuilder;
 
 import dev.kuzalo.onlycoords.client.hud.HudAnchor;
 
-// 26.1 : Mojang mappings — Text -> Component (net.minecraft.network.chat), Screen dans le package "screens".
+// 26.1: Mojang mappings — Text -> Component (net.minecraft.network.chat), Screen in the "screens" package.
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 
 public class ModMenuIntegration implements ModMenuApi {
-	// Valeurs par défaut pour le bouton "reset" de chaque option (instance figée, distincte du singleton live).
+	// Default values for each option's "reset" button (frozen instance, distinct from the live singleton).
 	private static final CoordsConfig DEFAULTS = new CoordsConfig();
 
 	@Override
@@ -77,7 +77,7 @@ public class ModMenuIntegration implements ModMenuApi {
 						.option(colorOption("backgroundColor", DEFAULTS.backgroundColor,
 								() -> cfg().backgroundColor, v -> cfg().backgroundColor = v))
 						.build())
-				// Sauvegarde uniquement au clic sur "Save" (les setters ne font qu'assigner le singleton).
+				// Saves only on "Save" click (the setters merely assign the singleton).
 				.save(ConfigManager::save)
 				.build()
 				.generateScreen(parent);
@@ -142,8 +142,8 @@ public class ModMenuIntegration implements ModMenuApi {
 				.build();
 	}
 
-	// textColor / backgroundColor sont des int ARGB ; YACL ColorController travaille avec java.awt.Color
-	// (inchangé en 3.9.x) → conversion int <-> Color au binding.
+	// textColor / backgroundColor are ARGB ints; YACL ColorController works with java.awt.Color
+	// (unchanged in 3.9.x) → int <-> Color conversion at the binding.
 	private static Option<Color> colorOption(String key, int defArgb, IntSupplier getter, IntConsumer setter) {
 		return Option.<Color>createBuilder()
 				.name(name(key))

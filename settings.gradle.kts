@@ -8,7 +8,7 @@ pluginManagement {
         maven("https://maven.kikugie.dev/snapshots") { name = "KikuGie Snapshots" }
     }
     plugins {
-        // Gestion de version du mod-publish-plugin (appliqué par version dans build.gradle.kts, sans version).
+        // Version management for the mod-publish-plugin (applied per version in build.gradle.kts, without a version).
         id("me.modmuss50.mod-publish-plugin") version "1.1.0"
     }
 }
@@ -22,7 +22,7 @@ plugins {
 stonecutter {
     create(rootProject) {
         // See https://stonecutter.kikugie.dev/wiki/start/#choosing-minecraft-versions
-        // Cibles OnlyCoords : 1.21.8 et 26.1.2 (Mojang mappings sur les deux via loom-back-compat).
+        // OnlyCoords targets: 1.21.8 and 26.1.2 (Mojang mappings on both via loom-back-compat).
         versions("1.21.8", "26.1.2")
         vcsVersion = "1.21.8"
     }

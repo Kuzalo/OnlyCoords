@@ -7,7 +7,7 @@ versions/*/build/
 versions/*/.gradle/
 versions/*/run/
 
-# ─── Fabric / Minecraft (run directory partagé) ───
+# ─── Fabric / Minecraft (shared run directory) ───
 run/
 
 # ─── IntelliJ IDEA ───
@@ -36,7 +36,7 @@ replay_*.log
 .DS_Store
 Thumbs.db
 
-# ─── Claude / Anthropic / outils IA (exclusions automatiques) ───
+# ─── Claude / Anthropic / AI tools (automatic exclusions) ───
 .claude/
 .claude-cache/
 .anthropic/

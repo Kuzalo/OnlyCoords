@@ -17,10 +17,10 @@ public class OnlyCoordsClient implements ClientModInitializer {
 
 	@Override
 	public void onInitializeClient() {
-		// ModMenuIntegration est chargé par ModMenu via l'entrypoint "modmenu" (ajouté en Stage B).
+		// ModMenuIntegration is loaded by ModMenu via the "modmenu" entrypoint.
 		CoordsConfig config = ConfigManager.load();
 		CoordsHudRenderer.register();
 		KeyBindings.register();
-		LOGGER.info("OnlyCoords initialisé (HUD {})", config.enabled ? "activé" : "désactivé");
+		LOGGER.info("OnlyCoords initialized (HUD {})", config.enabled ? "enabled" : "disabled");
 	}
 }
