@@ -3,7 +3,7 @@
   "id": "${id}",
   "version": "${version}",
   "name": "${name}",
-  "description": "HUD de coordonnées personnalisable. Mod client-side.",
+  "description": "Lightweight customizable coordinates HUD for Minecraft Fabric. F3 alternative.",
   "authors": [
     "Kuzalo"
   ],
