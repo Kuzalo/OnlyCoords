@@ -1,0 +1,31 @@
+{
+  "schemaVersion": 1,
+  "id": "${id}",
+  "version": "${version}",
+  "name": "${name}",
+  "description": "HUD de coordonnées personnalisable. Mod client-side.",
+  "authors": [
+    "Kuzalo"
+  ],
+  "license": "MIT",
+  "icon": "assets/onlycoords/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "dev.kuzalo.onlycoords.client.OnlyCoordsClient"
+    ],
+    "modmenu": [
+      "dev.kuzalo.onlycoords.client.config.ModMenuIntegration"
+    ]
+  },
+  "accessWidener": "onlycoords.ct",
+  "depends": {
+    "fabricloader": ">=0.16.14",
+    "minecraft": "${minecraft}",
+    "fabric-api": "*"
+  },
+  "recommends": {
+    "yet_another_config_lib_v3": "*",
+    "modmenu": "*"
+  }
+}

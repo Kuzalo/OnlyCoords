@@ -1,0 +1,66 @@
+# ─── Gradle ───
+.gradle/
+build/
+out/
+classes/
+versions/*/build/
+versions/*/.gradle/
+versions/*/run/
+
+# ─── Fabric / Minecraft (run directory partagé) ───
+run/
+
+# ─── IntelliJ IDEA ───
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# ─── Eclipse ───
+.classpath
+.project
+.settings/
+bin/
+*.launch
+
+# ─── VS Code ───
+.vscode/
+
+# ─── Java ───
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+
+# ─── OS ───
+.DS_Store
+Thumbs.db
+
+# ─── Claude / Anthropic / outils IA (exclusions automatiques) ───
+.claude/
+.claude-cache/
+.anthropic/
+claude-sessions/
+claude-prompts/
+CLAUDE.md
+claude.md
+CLAUDE.local.md
+claude.local.md
+.claude.json
+.claude-config
+.claude-config.json
+claude-config.yaml
+.clauderc
+.mcp.json
+mcp.json
+mcp-config.json
+.mcp-servers.json
+claude-session-*.md
+claude-notes-*.md
+*.claude-session.md
+claude-output-*.txt
+.claude-history
+prompts.md
+conversation-*.md
+.env.claude
+.env.anthropic

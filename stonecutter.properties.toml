@@ -1,0 +1,24 @@
+# See https://stonecutter.kikugie.dev/wiki/config/properties#centralized-properties
+mod.id = "onlycoords"
+mod.name = "OnlyCoords"
+mod.group = "dev.kuzalo.onlycoords"
+mod.version = "1.0.0"
+
+deps.fabric_loader = "0.19.2"
+loomx.loom_version = "1.16-SNAPSHOT"
+
+["1.21.8"]
+mod.mc_compat = "1.21.8"
+mod.mc_releases = ["1.21.8"]
+
+deps.fabric_api = "0.136.1+1.21.8"
+deps.yacl = "3.8.2+1.21.6-fabric"
+deps.modmenu = "15.0.2"
+
+["26.1.2"]
+mod.mc_compat = "~26.1.2"
+mod.mc_releases = ["26.1.2"]
+
+deps.fabric_api = "0.149.1+26.1.2"
+deps.yacl = "3.9.3+26.1-fabric"
+deps.modmenu = "18.0.0-beta.1"

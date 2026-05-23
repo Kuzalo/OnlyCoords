@@ -1,0 +1,42 @@
+{
+  "text.config.onlycoords.title": "OnlyCoords",
+
+  "category.onlycoords.general": "General",
+  "category.onlycoords.format": "Format",
+  "category.onlycoords.position": "Position",
+  "category.onlycoords.appearance": "Appearance",
+
+  "option.onlycoords.enabled": "Enabled",
+  "option.onlycoords.enabled.description": "Show or hide the coordinates HUD.",
+  "option.onlycoords.hideWhenF3Open": "Hide with F3",
+  "option.onlycoords.hideWhenF3Open.description": "Hide the HUD while the vanilla debug screen (F3) is open.",
+  "option.onlycoords.showDirection": "Show direction",
+  "option.onlycoords.showDirection.description": "Add a second line with the cardinal direction you are facing.",
+
+  "option.onlycoords.showDecimals": "Show decimals",
+  "option.onlycoords.showDecimals.description": "Display fractional coordinates instead of floored integers.",
+  "option.onlycoords.decimalCount": "Decimal places",
+  "option.onlycoords.decimalCount.description": "Number of decimal places shown when decimals are enabled (0-3).",
+  "option.onlycoords.scale": "Scale",
+  "option.onlycoords.scale.description": "Text size multiplier (0.5-2.0).",
+
+  "option.onlycoords.anchor": "Anchor",
+  "option.onlycoords.anchor.description": "Which corner or edge of the screen the HUD is anchored to.",
+  "option.onlycoords.offsetX": "Offset X",
+  "option.onlycoords.offsetX.description": "Horizontal offset from the anchor, in pixels.",
+  "option.onlycoords.offsetY": "Offset Y",
+  "option.onlycoords.offsetY.description": "Vertical offset from the anchor, in pixels.",
+
+  "option.onlycoords.textColor": "Text color",
+  "option.onlycoords.textColor.description": "Color (with alpha) of the coordinate text.",
+  "option.onlycoords.dropShadow": "Drop shadow",
+  "option.onlycoords.dropShadow.description": "Render a drop shadow behind the text.",
+  "option.onlycoords.background": "Background",
+  "option.onlycoords.background.description": "Draw a filled rectangle behind the text.",
+  "option.onlycoords.backgroundColor": "Background color",
+  "option.onlycoords.backgroundColor.description": "Color (with alpha) of the background rectangle.",
+
+  "category.onlycoords.keys": "OnlyCoords",
+  "key.category.onlycoords.keys": "OnlyCoords",
+  "key.onlycoords.toggle": "Toggle coordinates HUD"
+}

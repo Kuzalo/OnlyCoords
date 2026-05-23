@@ -1,0 +1,42 @@
+{
+  "text.config.onlycoords.title": "OnlyCoords",
+
+  "category.onlycoords.general": "Général",
+  "category.onlycoords.format": "Format",
+  "category.onlycoords.position": "Position",
+  "category.onlycoords.appearance": "Apparence",
+
+  "option.onlycoords.enabled": "Activé",
+  "option.onlycoords.enabled.description": "Affiche ou masque le HUD des coordonnées.",
+  "option.onlycoords.hideWhenF3Open": "Masquer avec F3",
+  "option.onlycoords.hideWhenF3Open.description": "Masque le HUD quand l'écran de debug vanilla (F3) est ouvert.",
+  "option.onlycoords.showDirection": "Afficher la direction",
+  "option.onlycoords.showDirection.description": "Ajoute une 2e ligne avec la direction cardinale regardée.",
+
+  "option.onlycoords.showDecimals": "Afficher les décimales",
+  "option.onlycoords.showDecimals.description": "Affiche les coordonnées avec décimales au lieu des entiers arrondis.",
+  "option.onlycoords.decimalCount": "Nombre de décimales",
+  "option.onlycoords.decimalCount.description": "Nombre de décimales affichées quand les décimales sont activées (0-3).",
+  "option.onlycoords.scale": "Échelle",
+  "option.onlycoords.scale.description": "Multiplicateur de taille du texte (0.5-2.0).",
+
+  "option.onlycoords.anchor": "Ancrage",
+  "option.onlycoords.anchor.description": "Coin ou bord de l'écran auquel le HUD est ancré.",
+  "option.onlycoords.offsetX": "Décalage X",
+  "option.onlycoords.offsetX.description": "Décalage horizontal depuis l'ancrage, en pixels.",
+  "option.onlycoords.offsetY": "Décalage Y",
+  "option.onlycoords.offsetY.description": "Décalage vertical depuis l'ancrage, en pixels.",
+
+  "option.onlycoords.textColor": "Couleur du texte",
+  "option.onlycoords.textColor.description": "Couleur (avec alpha) du texte des coordonnées.",
+  "option.onlycoords.dropShadow": "Ombre portée",
+  "option.onlycoords.dropShadow.description": "Affiche une ombre portée derrière le texte.",
+  "option.onlycoords.background": "Fond",
+  "option.onlycoords.background.description": "Dessine un rectangle plein derrière le texte.",
+  "option.onlycoords.backgroundColor": "Couleur du fond",
+  "option.onlycoords.backgroundColor.description": "Couleur (avec alpha) du rectangle de fond.",
+
+  "category.onlycoords.keys": "OnlyCoords",
+  "key.category.onlycoords.keys": "OnlyCoords",
+  "key.onlycoords.toggle": "Activer/désactiver le HUD"
+}
