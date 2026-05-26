@@ -2,10 +2,18 @@
 mod.id = "onlycoords"
 mod.name = "OnlyCoords"
 mod.group = "dev.kuzalo.onlycoords"
-mod.version = "1.0.0"
+mod.version = "1.1.0"
 
 deps.fabric_loader = "0.19.2"
 loomx.loom_version = "1.16-SNAPSHOT"
+
+["1.21.6"]
+mod.mc_compat = ">=1.21.6 <1.21.8"
+mod.mc_releases = ["1.21.6", "1.21.7"]
+
+deps.fabric_api = "0.128.2+1.21.6"
+deps.yacl = "3.8.2+1.21.6-fabric"
+deps.modmenu = "15.0.0-beta.3"
 
 ["1.21.8"]
 mod.mc_compat = "1.21.8"
@@ -15,9 +23,25 @@ deps.fabric_api = "0.136.1+1.21.8"
 deps.yacl = "3.8.2+1.21.6-fabric"
 deps.modmenu = "15.0.2"
 
+["1.21.9"]
+mod.mc_compat = ">=1.21.9 <1.21.11"
+mod.mc_releases = ["1.21.9", "1.21.10"]
+
+deps.fabric_api = "0.134.1+1.21.9"
+deps.yacl = "3.8.0+1.21.9-fabric"
+deps.modmenu = "16.0.1"
+
+["1.21.11"]
+mod.mc_compat = "1.21.11"
+mod.mc_releases = ["1.21.11"]
+
+deps.fabric_api = "0.141.4+1.21.11"
+deps.yacl = "3.8.2+1.21.11-fabric"
+deps.modmenu = "17.0.0"
+
 ["26.1.2"]
-mod.mc_compat = "~26.1.2"
-mod.mc_releases = ["26.1.2"]
+mod.mc_compat = ">=26.1 <=26.1.2"
+mod.mc_releases = ["26.1", "26.1.1", "26.1.2"]
 
 deps.fabric_api = "0.149.1+26.1.2"
 deps.yacl = "3.9.3+26.1-fabric"

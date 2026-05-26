@@ -18,10 +18,18 @@ import net.minecraft.client.DeltaTracker;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.Font;
 import net.minecraft.client.gui.GuiGraphics;
+// ResourceLocation was renamed to Identifier at MC 1.21.11 (26.1.x keeps Identifier).
+//? if >=1.21.11 {
+/*import net.minecraft.resources.Identifier;
+*///?} else
 import net.minecraft.resources.ResourceLocation;
 
 public class CoordsHudRenderer implements HudElement {
+	//? if >=1.21.11 {
+	/*private static final Identifier ID = Identifier.fromNamespaceAndPath(OnlyCoordsClient.MOD_ID, "coords_hud");
+	*///?} else {
 	private static final ResourceLocation ID = ResourceLocation.fromNamespaceAndPath(OnlyCoordsClient.MOD_ID, "coords_hud");
+	//?}
 	private static final int LINE_GAP = 2;
 	private static final String[] CARDINALS = {"S", "SW", "W", "NW", "N", "NE", "E", "SE"};
 

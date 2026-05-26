@@ -9,7 +9,10 @@ import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 
 import net.minecraft.client.KeyMapping;
-//? if >=26.1
+// Key category (1.21.9+) is registered with a resource id: ResourceLocation, renamed Identifier at 1.21.11.
+//? if >=1.21.11
+//import net.minecraft.resources.Identifier;
+//? if >=1.21.9 && <1.21.11
 //import net.minecraft.resources.ResourceLocation;
 
 import dev.kuzalo.onlycoords.client.OnlyCoordsClient;
@@ -17,17 +20,32 @@ import dev.kuzalo.onlycoords.client.config.ConfigManager;
 import dev.kuzalo.onlycoords.client.config.CoordsConfig;
 
 public final class KeyBindings {
-	// 26.1: category = KeyMapping.Category.register(ResourceLocation) object + KeyMappingHelper.
-	// 1.21.8: category = String (translation key) directly in the constructor + KeyBindingHelper.
-	//? if >=26.1 {
+	// Key category type changed at MC 1.21.9: a KeyMapping.Category object (registered with a resource
+	// id) instead of a String translation key. The resource id class is ResourceLocation, renamed to
+	// Identifier at 1.21.11. Hence three tiers: String (<1.21.9), Category+ResourceLocation
+	// (1.21.9-1.21.10) and Category+Identifier (>=1.21.11, incl. 26.1.x).
+	//? if >=1.21.11 {
+	/*private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(
+			Identifier.fromNamespaceAndPath(OnlyCoordsClient.MOD_ID, "keys"));
+	private static final KeyMapping TOGGLE_KEY = new KeyMapping(
+			"key.onlycoords.toggle", GLFW.GLFW_KEY_UNKNOWN, CATEGORY);
+	*///?}
+	//? if >=1.21.9 && <1.21.11 {
 	/*private static final KeyMapping.Category CATEGORY = KeyMapping.Category.register(
 			ResourceLocation.fromNamespaceAndPath(OnlyCoordsClient.MOD_ID, "keys"));
+	private static final KeyMapping TOGGLE_KEY = new KeyMapping(
+			"key.onlycoords.toggle", GLFW.GLFW_KEY_UNKNOWN, CATEGORY);
+	*///?}
+	//? if <1.21.9 {
+	private static final KeyMapping TOGGLE_KEY = new KeyMapping(
+			"key.onlycoords.toggle", GLFW.GLFW_KEY_UNKNOWN, "category.onlycoords.keys");
+	//?}
 
-	public static final KeyMapping TOGGLE = KeyMappingHelper.registerKeyMapping(new KeyMapping(
-			"key.onlycoords.toggle", GLFW.GLFW_KEY_UNKNOWN, CATEGORY));
+	// Registration helper changed at MC 26.1: KeyMappingHelper instead of KeyBindingHelper.
+	//? if >=26.1 {
+	/*public static final KeyMapping TOGGLE = KeyMappingHelper.registerKeyMapping(TOGGLE_KEY);
 	*///?} else {
-	public static final KeyMapping TOGGLE = KeyBindingHelper.registerKeyBinding(new KeyMapping(
-			"key.onlycoords.toggle", GLFW.GLFW_KEY_UNKNOWN, "category.onlycoords.keys"));
+	public static final KeyMapping TOGGLE = KeyBindingHelper.registerKeyBinding(TOGGLE_KEY);
 	//?}
 
 	private KeyBindings() {

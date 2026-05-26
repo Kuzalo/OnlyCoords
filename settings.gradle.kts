@@ -22,8 +22,9 @@ plugins {
 stonecutter {
     create(rootProject) {
         // See https://stonecutter.kikugie.dev/wiki/start/#choosing-minecraft-versions
-        // OnlyCoords targets: 1.21.8 and 26.1.2 (Mojang mappings on both via loom-back-compat).
-        versions("1.21.8", "26.1.2")
+        // OnlyCoords targets (Mojang mappings on all via loom-back-compat). Each dedicated build
+        // covers a Fabric range: 1.21.6→1.21.7, 1.21.8, 1.21.9→1.21.10, 1.21.11, 26.1→26.1.2.
+        versions("1.21.6", "1.21.8", "1.21.9", "1.21.11", "26.1.2")
         vcsVersion = "1.21.8"
     }
 }

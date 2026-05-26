@@ -2,7 +2,7 @@
 
 The Minecraft Fabric mod that shows just your coordinates. Nothing else.
 
-![Minecraft](https://img.shields.io/badge/Minecraft-1.21.8%20%7C%2026.1.2-62B47A)
+![Minecraft](https://img.shields.io/badge/Minecraft-1.21.6--1.21.11%20%7C%2026.1--26.1.2-62B47A)
 ![Mod Loader](https://img.shields.io/badge/Mod%20Loader-Fabric-DBD0B4)
 ![License](https://img.shields.io/badge/License-MIT-blue)
 
@@ -12,12 +12,15 @@ The F3 debug screen does show your coordinates — buried under dozens of techni
 
 ## Supported versions
 
-| Minecraft | Loader |
-|-----------|--------|
-| 1.21.8    | Fabric |
-| 26.1.2    | Fabric |
+| Minecraft        | Build (jar suffix) | Loader |
+|------------------|--------------------|--------|
+| 1.21.6 – 1.21.7  | `+1.21.6`          | Fabric |
+| 1.21.8           | `+1.21.8`          | Fabric |
+| 1.21.9 – 1.21.10 | `+1.21.9`          | Fabric |
+| 1.21.11          | `+1.21.11`         | Fabric |
+| 26.1 – 26.1.2    | `+26.1.2`          | Fabric |
 
-A single codebase builds both versions, managed across versions with [Stonecutter](https://stonecutter.kikugie.dev/).
+A single codebase builds all versions, managed across versions with [Stonecutter](https://stonecutter.kikugie.dev/).
 
 ## Features
 
@@ -47,7 +50,7 @@ A single codebase builds both versions, managed across versions with [Stonecutte
 
 ## Build from source
 
-The project uses [Stonecutter](https://stonecutter.kikugie.dev/) to manage both Minecraft versions from a single source.
+The project uses [Stonecutter](https://stonecutter.kikugie.dev/) to manage all Minecraft versions from a single source.
 
 Requirements: **JDK 21** and **JDK 25** (Gradle selects the right toolchain per version automatically).
 
@@ -63,7 +66,10 @@ Requirements: **JDK 21** and **JDK 25** (Gradle selects the right toolchain per 
 Built `.jar` files are located in:
 
 ```
+versions/1.21.6/build/libs/onlycoords-<version>+1.21.6.jar
 versions/1.21.8/build/libs/onlycoords-<version>+1.21.8.jar
+versions/1.21.9/build/libs/onlycoords-<version>+1.21.9.jar
+versions/1.21.11/build/libs/onlycoords-<version>+1.21.11.jar
 versions/26.1.2/build/libs/onlycoords-<version>+26.1.2.jar
 ```
 
