@@ -2,7 +2,7 @@
 mod.id = "onlycoords"
 mod.name = "OnlyCoords"
 mod.group = "dev.kuzalo.onlycoords"
-mod.version = "1.1.0"
+mod.version = "1.2.0"
 
 deps.fabric_loader = "0.19.2"
 loomx.loom_version = "1.16-SNAPSHOT"

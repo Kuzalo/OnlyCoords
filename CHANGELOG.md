@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.2.0] - 2026-05-27
+
+### Added
+
+- Mod icon now displayed in ModMenu and other mod listings
+
 ## [1.1.0] - 2026-05-26
 
 ### Added
